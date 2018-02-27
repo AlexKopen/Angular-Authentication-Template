@@ -13,3 +13,5 @@ In ```auth-config.ts```, set your ```CLIENT_ID```, ```CLIENT_DOMAIN```, and ```A
 ```
 npm start
 ```
+
+Login with a user configured using your Auth0 adminstrative portal.

@@ -13,8 +13,3 @@ export const AUTH_CONFIG: AuthConfig = {
     REDIRECT: 'http://localhost:4200/callback',
     SCOPE: 'openid profile email'
 };
-
-
-// CLIENT_ID: '5ep2SNhoVyNHhz41vxFl0Y2M8mg6o6gY',
-//     CLIENT_DOMAIN: 'volzap.auth0.com',
-//     AUDIENCE: 'https://api.reiserrelief.org',
