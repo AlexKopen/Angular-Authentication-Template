@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class LoginFormComponent implements OnInit, OnDestroy {
   loginModel = new Login('', '');
   loginStateSubscription: Subscription;
-  private loginSuccessful = false;
+  private loginUnsuccessful = false;
   private formSubmitted = false;
 
   constructor(private authService: AuthService) {
@@ -19,18 +19,18 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loginStateSubscription = this.authService.loggedIn$.subscribe(value => {
-      this.loginSuccessful = value;
+      this.loginUnsuccessful = !value;
     });
   }
 
   get displayErrorMessage() {
-    return this.formSubmitted && !this.loginSuccessful;
+    return this.formSubmitted && this.loginUnsuccessful;
   }
 
   onSubmit() {
-    this.formSubmitted = false;
-    this.authService.login(this.loginModel.username, this.loginModel.password);
+    this.loginUnsuccessful = false;
     this.formSubmitted = true;
+    this.authService.login(this.loginModel.username, this.loginModel.password);
   }
 
   ngOnDestroy() {
