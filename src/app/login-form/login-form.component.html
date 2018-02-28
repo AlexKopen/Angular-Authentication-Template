@@ -1,0 +1,15 @@
+<form class="pure-form pure-form-aligned" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="pure-control-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" required [(ngModel)]="loginModel.username" name="Username">
+    </div>
+
+    <div class="pure-control-group">
+        <label for="password">Password</label>
+        <input type="text" id="password" required [(ngModel)]="loginModel.password" name="Password">
+    </div>
+
+    <div class="pure-controls">
+        <button type="submit" class="pure-button pure-button-primary" [disabled]="!loginForm.form.valid">Submit</button>
+    </div>
+</form>
