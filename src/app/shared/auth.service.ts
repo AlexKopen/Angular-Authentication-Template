@@ -44,6 +44,8 @@ export class AuthService {
       realm: 'Username-Password-Authentication',
       username: username,
       password: password,
+    }, (err) => {
+      this.setLoggedIn(false);
     });
   }
 

@@ -6,10 +6,11 @@
 
     <div class="pure-control-group">
         <label for="password">Password</label>
-        <input type="text" id="password" required [(ngModel)]="loginModel.password" name="Password">
+        <input type="password" id="password" required [(ngModel)]="loginModel.password" name="Password">
     </div>
 
     <div class="pure-controls">
         <button type="submit" class="pure-button pure-button-primary" [disabled]="!loginForm.form.valid">Submit</button>
+        <p *ngIf="displayErrorMessage">Invalid login.  Please try again.</p>
     </div>
 </form>
