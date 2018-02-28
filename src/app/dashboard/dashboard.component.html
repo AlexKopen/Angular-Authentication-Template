@@ -1,8 +1,10 @@
 <app-navigation></app-navigation>
 
-<ul *ngFor="let currentPost of posts">
-    <li>{{currentPost.id}}</li>
-    <li>{{currentPost.userId}}</li>
-    <li>{{currentPost.title}}</li>
-    <li>{{currentPost.body}}</li>
+<ul *ngFor="let currentPost of posts; let i = index">
+    <ng-container *ngIf="i <= 5">
+        <li>{{currentPost.id}}</li>
+        <li>{{currentPost.userId}}</li>
+        <li>{{currentPost.title}}</li>
+        <li>{{currentPost.body}}</li>
+    </ng-container>
 </ul>
