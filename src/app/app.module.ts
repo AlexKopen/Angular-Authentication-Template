@@ -14,20 +14,20 @@ import { DataService } from './shared/data.service';
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        CallbackComponent,
-        LoginComponent,
-        DashboardComponent,
-        NavigationComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule
-    ],
-    providers: [AuthService, DataService],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    CallbackComponent,
+    LoginComponent,
+    DashboardComponent,
+    NavigationComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  providers: [AuthService, DataService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

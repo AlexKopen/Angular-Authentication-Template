@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-callback',
@@ -9,14 +9,15 @@ import {Router} from '@angular/router';
 })
 export class CallbackComponent implements OnInit {
 
-    constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
-    ngOnInit() {
-        if (this.authService.authenticated) {
-            this.router.navigate(['/dashboard']);
-        } else {
-            this.authService.handleAuth();
-        }
+  ngOnInit() {
+    if (this.authService.authenticated) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.authService.handleAuth();
     }
+  }
 
 }
