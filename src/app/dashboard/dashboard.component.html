@@ -1,5 +1,8 @@
 <app-navigation></app-navigation>
 
-<p>
-    dashboard works!
-</p>
+<ul *ngFor="let currentPost of posts">
+    <li>{{currentPost.id}}</li>
+    <li>{{currentPost.userId}}</li>
+    <li>{{currentPost.title}}</li>
+    <li>{{currentPost.body}}</li>
+</ul>
