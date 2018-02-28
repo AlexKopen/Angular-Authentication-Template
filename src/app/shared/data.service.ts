@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ENDPOINT } from './endpoint.constants';
 import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +12,9 @@ export class DataService {
 
   getPosts(): Observable<Array<Post>> {
     return this.http
-      .get(ENDPOINT.postsURL)
+      .get(ENDPOINT.postsURL, {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
+      })
       .pipe(
         catchError(this.handleError)
       );
