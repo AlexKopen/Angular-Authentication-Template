@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from '../shared/models/login.model';
 import { AuthService } from '../shared/auth.service';
+import * as auth0 from 'auth0-js';
 
 @Component({
   selector: 'app-login-form',
@@ -17,6 +18,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login();
+    this.authService.login(this.loginModel.username, this.loginModel.password);
   }
 }
