@@ -57,6 +57,9 @@ export class AuthService {
         this._getProfile(authResult);
       } else if (err) {
         console.error(`Error: ${err.error}`);
+        this.router.navigate(['/login']);
+      } else {
+        this.router.navigate(['/login']);
       }
     });
   }
