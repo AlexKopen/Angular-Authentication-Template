@@ -13,12 +13,14 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   loginStateSubscription: Subscription;
   private loginUnsuccessful = false;
   private formSubmitted = false;
+  showSpinner = false;
 
   constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
     this.loginStateSubscription = this.authService.loggedIn$.subscribe(value => {
+      this.showSpinner = false;
       this.loginUnsuccessful = !value;
     });
   }
@@ -30,6 +32,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.loginUnsuccessful = false;
     this.formSubmitted = true;
+    this.showSpinner = true;
     this.authService.login(this.loginModel.username, this.loginModel.password);
   }
 

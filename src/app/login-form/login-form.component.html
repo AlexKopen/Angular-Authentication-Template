@@ -1,7 +1,9 @@
 <div id="outer-form-container">
     <div id="middle-form-container">
         <div id="inner-form-container">
-            <form class="pure-form pure-form-aligned" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <app-spinner *ngIf="showSpinner"></app-spinner>
+
+            <form class="pure-form pure-form-aligned" *ngIf="!showSpinner" (ngSubmit)="onSubmit()" #loginForm="ngForm">
                 <div class="pure-control-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" required [(ngModel)]="loginModel.username" name="Username">
@@ -16,7 +18,8 @@
                     <button type="submit" class="pure-button pure-button-primary">
                         Submit
                     </button>
-                    <p id="invalid-message"><span *ngIf="displayErrorMessage">Invalid login. Please try again.</span></p>
+                    <p id="invalid-message"><span *ngIf="displayErrorMessage">Invalid login. Please try again.</span>
+                    </p>
                 </div>
             </form>
         </div>

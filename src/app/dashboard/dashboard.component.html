@@ -1,10 +1,30 @@
 <app-navigation></app-navigation>
 
-<ul *ngFor="let currentPost of posts; let i = index">
-    <ng-container *ngIf="i < 5">
-        <li>{{currentPost.id}}</li>
-        <li>{{currentPost.userId}}</li>
-        <li>{{currentPost.title}}</li>
-        <li>{{currentPost.body}}</li>
-    </ng-container>
-</ul>
+<div class="container">
+    <h2>Sample Posts</h2>
+
+    <app-spinner *ngIf="!displayTable"></app-spinner>
+
+    <table *ngIf="displayTable" class="pure-table">
+        <thead>
+        <tr>
+            <th>Post Id</th>
+            <th>User Id</th>
+            <th>Title</th>
+            <th>Content</th>
+        </tr>
+        </thead>
+
+        <tbody *ngFor="let currentPost of posts; let i = index">
+        <ng-container *ngIf="i < 5">
+            <tr [ngClass]="{'pure-table-odd': i % 2 === 0}">
+                <td>{{currentPost.id}}</td>
+                <td>{{currentPost.userId}}</td>
+                <td>{{currentPost.title}}</td>
+                <td>{{currentPost.body}}</td>
+            </tr>
+        </ng-container>
+
+        </tbody>
+    </table>
+</div>

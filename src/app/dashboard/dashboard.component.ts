@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   posts: Array<Post>;
-  postsSubscription: Subscription;
+  private postsSubscription: Subscription;
 
   constructor(private dataService: DataService) {
   }
@@ -19,6 +19,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.postsSubscription = this.dataService.getPosts().subscribe(
       data => this.posts = data
     );
+  }
+
+  get displayTable() {
+    return this.posts && this.posts.length > 0;
   }
 
   ngOnDestroy() {

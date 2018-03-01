@@ -13,6 +13,7 @@ import { AuthService } from './shared/auth.service';
 import { DataService } from './shared/data.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     DashboardComponent,
     NavigationComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
