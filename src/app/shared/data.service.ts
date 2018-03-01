@@ -10,11 +10,13 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
+  private get headers(): HttpHeaders {
+    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+  }
+
   getPosts(): Observable<Array<Post>> {
     return this.http
-      .get(ENDPOINT.postsURL, {
-        headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
-      })
+      .get(ENDPOINT.postsURL, {headers: this.headers})
       .pipe(
         catchError(this.handleError)
       );
