@@ -1,4 +1,7 @@
 .container {
-  width: 64em;
+  width: 100%;
+  max-width: 64em;
   margin: 0 auto;
+  padding: 0 1em;
+  box-sizing: border-box;
 }
