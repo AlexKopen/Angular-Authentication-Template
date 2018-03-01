@@ -31,6 +31,12 @@
           margin-top: 2em !important;
         }
       }
+
+      #invalid-message {
+        height: 2em;
+        line-height: 2em;
+        color: #ca3d3c;
+      }
     }
   }
 }

@@ -16,7 +16,7 @@
                     <button type="submit" class="pure-button pure-button-primary" [disabled]="!loginForm.form.valid">
                         Submit
                     </button>
-                    <p *ngIf="displayErrorMessage">Invalid login. Please try again.</p>
+                    <p id="invalid-message"><span *ngIf="displayErrorMessage">Invalid login. Please try again.</span></p>
                 </div>
             </form>
         </div>
