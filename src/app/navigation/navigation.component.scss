@@ -1,0 +1,22 @@
+$navigation-height: 4em;
+
+:host {
+  display: block;
+  height: $navigation-height;
+  background: #f5f6f9;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  line-height: $navigation-height;
+}
+
+#logout-text {
+  text-align: right;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
