@@ -21,4 +21,4 @@ npm start
 Login with an authorized user.  The ```/dashboard``` endpoint is only accessible when a user is logged in. 
 
 ## Additional Information
-[JSON Placeholder](https://jsonplaceholder.typicode.com/) is used to make a dummy API call.  ```data.service.ts``` show an example of calling this API with an Authorization header.
+[JSON Placeholder](https://jsonplaceholder.typicode.com/) is used to make a dummy API call.  ```src/app/shared/data.service.ts``` show an example of calling this API with an Authorization header.
