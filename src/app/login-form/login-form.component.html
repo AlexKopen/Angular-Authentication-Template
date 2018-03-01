@@ -1,16 +1,24 @@
-<form class="pure-form pure-form-aligned" (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="pure-control-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" required [(ngModel)]="loginModel.username" name="Username">
-    </div>
+<div id="outer-form-container">
+    <div id="middle-form-container">
+        <div id="inner-form-container">
+            <form class="pure-form pure-form-aligned" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="pure-control-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required [(ngModel)]="loginModel.username" name="Username">
+                </div>
 
-    <div class="pure-control-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" required [(ngModel)]="loginModel.password" name="Password">
-    </div>
+                <div class="pure-control-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required [(ngModel)]="loginModel.password" name="Password">
+                </div>
 
-    <div class="pure-controls">
-        <button type="submit" class="pure-button pure-button-primary" [disabled]="!loginForm.form.valid">Submit</button>
-        <p *ngIf="displayErrorMessage">Invalid login.  Please try again.</p>
+                <div class="pure-controls">
+                    <button type="submit" class="pure-button pure-button-primary" [disabled]="!loginForm.form.valid">
+                        Submit
+                    </button>
+                    <p *ngIf="displayErrorMessage">Invalid login. Please try again.</p>
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+</div>
