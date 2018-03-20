@@ -116,7 +116,7 @@ export class AuthService {
 
     this.unscheduleRenewal();
 
-    const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
 
     const source = Observable.of(expiresAt).flatMap(
       expiresAt => {
