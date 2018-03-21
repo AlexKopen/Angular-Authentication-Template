@@ -6,7 +6,7 @@ A sample Angular application which handles user authentication using [Auth0](htt
 In your [Auth0 administrative portal](https://manage.auth0.com/), create a new client and API as well as a new user to login with.  Add ```http://localhost:4200/callback``` to your Allowed Callback URLs in your newly created Auth0 client. 
 
 
-Install project depencies.
+Install project dependencies.
 
 ```
 npm install
