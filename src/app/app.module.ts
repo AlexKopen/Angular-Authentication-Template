@@ -1,39 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppComponent } from './app.component';
-import { CallbackComponent } from './callback/callback.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { AuthService } from './shared/auth.service';
-import { DataService } from './shared/data.service';
-import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
-import { SpinnerComponent } from './spinner/spinner.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { ApiService } from './api.service';
+import { AuthService } from './auth/auth.service';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { CallbackComponent } from './callback/callback.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     CallbackComponent,
-    LoginComponent,
-    DashboardComponent,
-    NavigationComponent,
-    LoginFormComponent,
-    SpinnerComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    FormsModule,
     HttpClientModule,
-    FormsModule
+    AppRoutingModule
   ],
-  providers: [AuthService, DataService],
+  providers: [
+    ApiService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

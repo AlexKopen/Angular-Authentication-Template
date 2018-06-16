@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { AngularAuth0AsidePage } from './app.po';
 
-describe('angular-authentication-template App', () => {
-  let page: AppPage;
+describe('angular-auth0-aside App', () => {
+  let page: AngularAuth0AsidePage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AngularAuth0AsidePage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
