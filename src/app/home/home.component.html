@@ -1,7 +1,15 @@
 <h1>Angular with Auth0</h1>
 
 <div *ngIf="!auth.authenticated">
-  <button (click)="auth.login()">Log In</button>
+  <mat-form-field>
+    <input matInput placeholder="Username" [(ngModel)]="username">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" [(ngModel)]="password">
+  </mat-form-field>
+
+  <button (click)="auth.login(username, password)">Log In</button>
 </div>
 
 <div *ngIf="auth.authenticated">

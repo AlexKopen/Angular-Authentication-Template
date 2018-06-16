@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   dragons: any[];
   authSubscription: Subscription;
   dragonsSubscription: Subscription;
+  username: String;
+  password: String;
 
   constructor(
     private api: ApiService,

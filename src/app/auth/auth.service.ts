@@ -39,9 +39,13 @@ export class AuthService {
     this.loggedIn = value;
   }
 
-  login() {
+  login(username: String, password: String) {
     // Auth0 authorize request
-    this._Auth0.authorize();
+    this._Auth0.login({
+      realm: 'Username-Password-Authentication',
+      username: username,
+      password: password,
+    });
   }
 
   handleLoginCallback() {
