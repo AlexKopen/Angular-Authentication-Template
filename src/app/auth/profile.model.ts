@@ -22,5 +22,5 @@ export class UserProfile {
     public phone_number_verified?: boolean,
     public address?: object,
     public updated_at?: number
-  ) { }
+  ) {}
 }

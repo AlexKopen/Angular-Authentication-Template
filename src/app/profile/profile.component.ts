@@ -9,7 +9,7 @@ import { AuthService } from './../auth/auth.service';
 export class ProfileComponent implements OnInit {
   profileArray = this._makeProfileArray(this.auth.userProfile);
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService) {}
 
   ngOnInit() {
     console.log(this.auth.userProfile);
@@ -26,5 +26,4 @@ export class ProfileComponent implements OnInit {
 
     return keyPropArray;
   }
-
 }

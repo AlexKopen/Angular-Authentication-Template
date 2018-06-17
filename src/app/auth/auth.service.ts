@@ -44,7 +44,7 @@ export class AuthService {
     this._Auth0.login({
       realm: 'Username-Password-Authentication',
       username: username,
-      password: password,
+      password: password
     });
   }
 
@@ -90,7 +90,6 @@ export class AuthService {
   get authenticated(): boolean {
     // Check if current date is greater than
     // expiration and user is currently logged in
-    return (Date.now() < this.expiresAt) && this.loggedIn;
+    return Date.now() < this.expiresAt && this.loggedIn;
   }
-
 }

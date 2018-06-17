@@ -15,25 +15,20 @@ export class HomeComponent implements OnInit, OnDestroy {
   username: String;
   password: String;
 
-  constructor(
-    private api: ApiService,
-    public auth: AuthService
-  ) { }
+  constructor(private api: ApiService, public auth: AuthService) {}
 
   ngOnInit() {
     // Subscribe to login status subject
     // If authenticated, subscribe to dragons data observable
     // If not authenticated, unsubscribe from dragons data
-    this.authSubscription = this.auth.loggedIn$
-      .subscribe(loggedIn => {
-        if (loggedIn) {
-          this._getDragons();
-        } else {
-          this.dragons = null;
-          this._destroyDragonsSubscription();
-        }
+    this.authSubscription = this.auth.loggedIn$.subscribe(loggedIn => {
+      if (loggedIn) {
+        this._getDragons();
+      } else {
+        this.dragons = null;
+        this._destroyDragonsSubscription();
       }
-    );
+    });
   }
 
   ngOnDestroy() {
@@ -44,14 +39,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private _getDragons() {
     // Subscribe to dragons API observable
-    this.dragonsSubscription = this.api.getDragons$()
-      .subscribe(
-        data => {
-          this.dragons = data;
-        },
-        err => console.warn(err),
-        () => console.log('Request complete')
-      );
+    this.dragonsSubscription = this.api.getDragons$().subscribe(
+      data => {
+        this.dragons = data;
+      },
+      err => console.warn(err),
+      () => console.log('Request complete')
+    );
   }
 
   private _destroyDragonsSubscription() {
@@ -64,5 +58,4 @@ export class HomeComponent implements OnInit, OnDestroy {
   get dragonsExist() {
     return !!this.dragons && this.dragons.length;
   }
-
 }

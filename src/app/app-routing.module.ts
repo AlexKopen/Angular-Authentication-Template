@@ -20,9 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
       {
         path: 'profile',
         component: ProfileComponent,
-        canActivate: [
-          AuthGuard
-        ]
+        canActivate: [AuthGuard]
       },
       {
         path: '**',
@@ -31,11 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
       }
     ])
   ],
-  providers: [
-    AuthGuard
-  ],
-  exports: [
-    RouterModule
-  ]
+  providers: [AuthGuard],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
