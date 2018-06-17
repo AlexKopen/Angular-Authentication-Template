@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-auth0-aside": {
+    "angular-authentication-template": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -43,18 +43,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-auth0-aside:build"
+            "browserTarget": "angular-authentication-template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-auth0-aside:build:production"
+              "browserTarget": "angular-authentication-template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-auth0-aside:build"
+            "browserTarget": "angular-authentication-template:build"
           }
         },
         "test": {
@@ -78,7 +78,7 @@
         }
       }
     },
-    "angular-auth0-aside-e2e": {
+    "angular-authentication-template-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -87,7 +87,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular-auth0-aside:serve"
+            "devServerTarget": "angular-authentication-template:serve"
           }
         },
         "lint": {
@@ -100,7 +100,7 @@
       }
     }
   },
-  "defaultProject": "angular-auth0-aside",
+  "defaultProject": "angular-authentication-template",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

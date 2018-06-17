@@ -1,6 +1,6 @@
 import { AngularAuth0AsidePage } from './app.po';
 
-describe('angular-auth0-aside App', () => {
+describe('angular-authentication-template App', () => {
   let page: AngularAuth0AsidePage;
 
   beforeEach(() => {
