@@ -11,9 +11,10 @@ import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CallbackComponent, ProfileComponent],
+  declarations: [AppComponent, HomeComponent, CallbackComponent, ProfileComponent, LoginComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule],
   providers: [ApiService, AuthService],
   bootstrap: [AppComponent]
