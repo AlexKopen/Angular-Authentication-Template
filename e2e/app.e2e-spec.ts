@@ -1,10 +1,10 @@
-import { AngularAuth0AsidePage } from './app.po';
+import { AngularAuthenticationTemplatePage } from './app.po';
 
 describe('angular-authentication-template App', () => {
-  let page: AngularAuth0AsidePage;
+  let page: AngularAuthenticationTemplatePage;
 
   beforeEach(() => {
-    page = new AngularAuth0AsidePage();
+    page = new AngularAuthenticationTemplatePage();
   });
 
   it('should display message saying app works', () => {

@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AngularAuth0AsidePage {
+export class AngularAuthenticationTemplatePage {
   navigateTo() {
     return browser.get('/');
   }
