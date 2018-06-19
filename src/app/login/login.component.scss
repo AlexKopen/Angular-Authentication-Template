@@ -1,3 +1,29 @@
-#warning {
-  color: #f44336;
+@import '../../globals';
+
+#container {
+  width: 35em;
+  height: 18em;
+  margin: 0 auto;
+  background: #f8f8f8;
+
+  #title {
+    background: $primary-theme-color;
+    color: $white;
+    $title-height: 3em;
+    height: $title-height;
+    line-height: $title-height;
+    padding: 0 0.5em;
+  }
+
+  table {
+    width: 100%;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  #login-error {
+    color: #f44336;
+  }
 }

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+    this.showError = false;
     this.showSpinner = true;
     this.auth.login(this.username, this.password);
   }
