@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import * as auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 import { UserProfile } from './profile.model';
@@ -27,6 +27,9 @@ export class AuthService {
   loggedIn: boolean;
   loggedIn$ = new BehaviorSubject<boolean>(this.loggedIn);
 
+  logInError: boolean;
+  logInError$ = new BehaviorSubject<boolean>(this.logInError);
+
   constructor() {
     // You can restore an unexpired authentication session on init
     // by using the checkSession() endpoint from auth0.js:
@@ -41,11 +44,16 @@ export class AuthService {
 
   login(username: String, password: String) {
     // Auth0 authorize request
-    this._Auth0.login({
-      realm: 'Username-Password-Authentication',
-      username: username,
-      password: password
-    });
+    this._Auth0.login(
+      {
+        realm: 'Username-Password-Authentication',
+        username: username,
+        password: password
+      },
+      err => {
+        this.logInError$.next(true);
+      }
+    );
   }
 
   handleLoginCallback() {
