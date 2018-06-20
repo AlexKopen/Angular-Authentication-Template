@@ -12,9 +12,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CallbackComponent, ProfileComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, CallbackComponent, ProfileComponent, LoginComponent, DashboardComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule],
   providers: [ApiService, AuthService],
   bootstrap: [AppComponent]
