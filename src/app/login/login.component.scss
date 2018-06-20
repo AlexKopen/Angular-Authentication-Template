@@ -2,7 +2,6 @@
 
 #container {
   width: 35em;
-  height: 18em;
   margin: 0 auto;
   background: #f8f8f8;
 
@@ -13,17 +12,38 @@
     height: $title-height;
     line-height: $title-height;
     padding: 0 0.5em;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
   }
 
-  table {
-    width: 100%;
+  mat-card {
+    height: 12em;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
-    mat-form-field {
+    table {
       width: 100%;
-    }
-  }
 
-  #login-error {
-    color: #f44336;
+      mat-form-field {
+        width: 100%;
+      }
+    }
+
+    mat-card-actions {
+      margin: 0;
+    }
+
+    #login-error {
+      color: #f44336;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 5em;
+    }
+
+    mat-spinner {
+      margin: 0 auto;
+    }
   }
 }
