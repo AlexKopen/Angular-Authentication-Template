@@ -1,0 +1,34 @@
+@import '../../globals';
+
+#container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: $application-width;
+  margin: 0 auto;
+
+  .header-column {
+    width: 50%;
+    $header-column-height: 70px;
+    height: $header-column-height;
+
+    img {
+      width: 60px;
+    }
+
+    p {
+      margin: 0;
+      text-align: right;
+      line-height: $header-column-height;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#title {
+  text-align: center;
+}

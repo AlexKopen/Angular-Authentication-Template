@@ -4,7 +4,7 @@ import { AuthGuard } from './auth/auth.guard';
 
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
-import { ProfileComponent } from './profile/profile.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -18,8 +18,8 @@ import { ProfileComponent } from './profile/profile.component';
         component: CallbackComponent
       },
       {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'dashboard',
+        component: DashboardComponent,
         canActivate: [AuthGuard]
       },
       {
