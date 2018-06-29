@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/index';
 import { ApiService } from '../api.service';
 import { AuthService } from '../auth/auth.service';
+import { Dragon } from '../shared/models/dragon.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  dragons: any[];
+  dragons: Dragon[];
   authSubscription: Subscription;
   dragonsSubscription: Subscription;
 

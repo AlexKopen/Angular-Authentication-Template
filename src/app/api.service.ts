@@ -3,6 +3,7 @@ import { throwError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
+import { Dragon } from './shared/models/dragon.model';
 
 @Injectable()
 export class ApiService {
@@ -12,7 +13,7 @@ export class ApiService {
 
   getDragons$(): Observable<any[]> {
     return this.http
-      .get<any[]>(`${this.baseUrl}dragons`, {
+      .get<Dragon[]>(`${this.baseUrl}dragons`, {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`)
       })
       .pipe(catchError(this._handleError));

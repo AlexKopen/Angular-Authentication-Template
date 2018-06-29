@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import * as auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
-import { UserProfile } from './profile.model';
 
 (window as any).global = window;
 
@@ -19,7 +18,6 @@ export class AuthService {
     audience: AUTH_CONFIG.AUDIENCE,
     scope: AUTH_CONFIG.SCOPE
   });
-  userProfile: UserProfile;
   accessToken: string;
   expiresAt: number;
 
@@ -79,7 +77,6 @@ export class AuthService {
     // Save session data and update login status subject
     this.expiresAt = authResult.expiresIn * 1000 + Date.now();
     this.accessToken = authResult.accessToken;
-    this.userProfile = profile;
     this._setLoggedIn(true);
   }
 
