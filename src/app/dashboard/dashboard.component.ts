@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   dragons: Dragon[];
   authSubscription: Subscription;
   dragonsSubscription: Subscription;
+  displayedColumns: string[] = ['id', 'name', 'source'];
 
   constructor(private api: ApiService, private auth: AuthService) {}
 

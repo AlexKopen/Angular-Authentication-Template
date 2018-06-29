@@ -1,11 +1,26 @@
 <app-header></app-header>
 
-<div *ngIf="dragonsExist">
-  <h2>Here Be Dragons</h2>
+<div class="container">
+  <div *ngIf="dragonsExist">
+    <table mat-table [dataSource]="dragons" class="mat-elevation-z8">
 
-  <ul>
-    <li *ngFor="let dragon of dragons">
-      {{dragon.name}} - {{dragon.source}}
-    </li>
-  </ul>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="source">
+        <th mat-header-cell *matHeaderCellDef> Source </th>
+        <td mat-cell *matCellDef="let element"> {{element.source}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>

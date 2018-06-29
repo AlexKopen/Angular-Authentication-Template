@@ -5,12 +5,28 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTableModule
 } from '@angular/material';
 
 @NgModule({
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatCardModule, MatProgressSpinnerModule, MatButtonModule],
-  exports: [MatFormFieldModule, MatInputModule, MatCardModule, MatProgressSpinnerModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatTableModule
+  ],
+  exports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatTableModule
+  ],
   declarations: []
 })
 export class MaterialModule {}
