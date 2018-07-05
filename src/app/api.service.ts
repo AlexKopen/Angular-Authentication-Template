@@ -4,16 +4,15 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
 import { Dragon } from './shared/models/dragon.model';
+import { ENDPOINT } from './shared/endpoint.constants';
 
 @Injectable()
 export class ApiService {
-  private baseUrl = 'http://localhost:3001/api/';
-
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   getDragons$(): Observable<Dragon[]> {
     return this.http
-      .get<Dragon[]>(`${this.baseUrl}dragons`, {
+      .get<Dragon[]>(ENDPOINT.dragons, {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`)
       })
       .pipe(catchError(this.handleError));
