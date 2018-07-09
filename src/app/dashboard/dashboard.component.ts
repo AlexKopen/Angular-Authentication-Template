@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/index';
-import { ApiService } from '../api.service';
-import { AuthService } from '../auth/auth.service';
+import { ApiService } from '../shared/api.service';
+import { AuthService } from '../shared/auth/auth.service';
 import { Dragon } from '../shared/models/dragon.model';
 
 @Component({
