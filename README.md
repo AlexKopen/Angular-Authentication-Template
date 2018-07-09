@@ -23,7 +23,7 @@ In your [Auth0 administrative portal](https://manage.auth0.com/), create a new c
 
 Open `server/config.js.example` and remove `.example` from the file name. Then replace `[CLIENT_DOMAIN]` with your Auth0 domain.
 
-Open `src/app/auth/auth0-variables.ts.example` and remove `.example` from the file name. Then replace `[CLIENT_ID]` and `[CLIENT_DOMAIN]` with your Auth0 client ID and domain.
+Open `src/app/shared/auth/auth0-variables.ts.example` and remove `.example` from the file name. Then replace `[CLIENT_ID]` and `[CLIENT_DOMAIN]` with your Auth0 client ID and domain.
 
 ## Serving the project
 
