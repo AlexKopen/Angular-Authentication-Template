@@ -1,6 +1,8 @@
-# angular-authentication-template
+# Angular-Authentication-Template
 
-This repository demonstrates the use of [Auth0](https://auth0.com) with [Angular](https://angular.io) (with the [@angular/cli](https://github.com/angular/angular-cli)) and a sample Node API with a protected route.
+This repository demonstrates the use of [Auth0](https://auth0.com) within an Angular 6 application and a sample Node API with a protected route.
+
+This project was created referencing [this repository](https://github.com/auth0-blog/angular-auth0-aside).
 
 ## Dependencies
 
@@ -16,44 +18,26 @@ For complete instructions on how to set up an Auth0 account, client, and API, as
 Clone this project. From the root directory, run the following commands to install dependencies for the server and client-side:
 
 ```
-$ npm install
-$ cd server
-$ npm install
+npm install
+cd server
+npm install
 ```
+
+In your [Auth0 administrative portal](https://manage.auth0.com/), create a new client and API as well as a new user to login with. Add `http://localhost:4200/callback` to your Allowed Callback URLs and `http://localhost:4200` to your Allowed Web Origins and Allowed Logout URLs in your newly created Auth0 client.
 
 1.  Open `server/config.js.example` and remove `.example` from the file name. Then replace `[CLIENT_DOMAIN]` with your Auth0 domain.
 2.  Open `src/app/auth/auth0-variables.ts.example` and remove `.example` from the file name. Then replace `[CLIENT_ID]` and `[CLIENT_DOMAIN]` with your Auth0 client ID and domain.
 
 ## Serving the project
 
-```bash
-$ npm start
+```
+npm start
 ```
 
-## What is Auth0?
+Login with an authorized user. The `/dashboard` endpoint is only accessible when a user is logged in.
 
-Auth0 helps you to:
+## Additional Information
 
-- Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, amont others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-- Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
-- Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
-- Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
-- Analytics of how, when and where users are logging in.
-- Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
+[Angular Material](https://material.angular.io/) is fully integrated into this project. Material components can be added to the material module located at `src/app/material/material.module.ts`.
 
-## Create a Free Auth0 Account
-
-1.  Go to [Auth0](https://auth0.com) and click Sign Up.
-2.  Use Google, GitHub, or Microsoft Account to log in.
-
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](auth0.com)
-
-## License
-
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+[Prettier](https://prettier.io/) is used to format files and is triggered when committing files with git. Configuration for Prettier is defined in `.prettierrc`.
