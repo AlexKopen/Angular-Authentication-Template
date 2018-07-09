@@ -1,7 +1,6 @@
-.container {
-  width: 100%;
-  max-width: 64em;
-  margin: 0 auto;
-  padding: 0 1em;
-  box-sizing: border-box;
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html {
+  font-family: 'Roboto', sans-serif;
 }

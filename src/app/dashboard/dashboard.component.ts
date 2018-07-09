@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DataService } from '../shared/data.service';
-import { Post } from '../shared/models/post.model';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/index';
+import { ApiService } from '../shared/api.service';
+import { AuthService } from '../shared/auth/auth.service';
+import { Dragon } from '../shared/models/dragon.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,23 +10,49 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  posts: Array<Post>;
-  private postsSubscription: Subscription;
+  dragons: Dragon[];
+  authSubscription: Subscription;
+  dragonsSubscription: Subscription;
+  displayedColumns: string[] = ['id', 'name', 'source'];
 
-  constructor(private dataService: DataService) {
-  }
+  constructor(private api: ApiService, private auth: AuthService) {}
 
   ngOnInit() {
-    this.postsSubscription = this.dataService.getPosts().subscribe(
-      data => this.posts = data
-    );
-  }
-
-  get displayTable() {
-    return this.posts && this.posts.length > 0;
+    this.authSubscription = this.auth.loggedIn$.subscribe(loggedIn => {
+      if (loggedIn) {
+        this._getDragons();
+      } else {
+        this.dragons = null;
+        this._destroyDragonsSubscription();
+      }
+    });
   }
 
   ngOnDestroy() {
-    this.postsSubscription.unsubscribe();
+    // Unsubscribe from observables
+    this.authSubscription.unsubscribe();
+    this._destroyDragonsSubscription();
+  }
+
+  private _getDragons() {
+    // Subscribe to dragons API observable
+    this.dragonsSubscription = this.api.getDragons$().subscribe(
+      data => {
+        this.dragons = data;
+      },
+      err => console.warn(err),
+      () => console.log('Request complete')
+    );
+  }
+
+  private _destroyDragonsSubscription() {
+    // If a dragons subscription exists, unsubscribe
+    if (this.dragonsSubscription) {
+      this.dragonsSubscription.unsubscribe();
+    }
+  }
+
+  get dragonsExist() {
+    return !!this.dragons && this.dragons.length;
   }
 }

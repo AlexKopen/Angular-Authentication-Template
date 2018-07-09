@@ -1,0 +1,9 @@
+$application-width: 1000px;
+$primary-theme-color: #673ab7;
+$white: #fff;
+
+.container {
+  width: 100%;
+  max-width: $application-width;
+  margin: 0 auto;
+}

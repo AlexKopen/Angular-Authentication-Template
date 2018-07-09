@@ -1,30 +1,26 @@
-<app-navigation></app-navigation>
+<app-header></app-header>
 
 <div class="container">
-    <h2>Sample Posts</h2>
+  <div *ngIf="dragonsExist">
+    <table mat-table [dataSource]="dragons" class="mat-elevation-z8">
 
-    <app-spinner *ngIf="!displayTable"></app-spinner>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
 
-    <table *ngIf="displayTable" class="pure-table">
-        <thead>
-        <tr>
-            <th>Post Id</th>
-            <th>User Id</th>
-            <th>Title</th>
-            <th>Content</th>
-        </tr>
-        </thead>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
 
-        <tbody *ngFor="let currentPost of posts; let i = index">
-        <ng-container *ngIf="i < 5">
-            <tr [ngClass]="{'pure-table-odd': i % 2 === 0}">
-                <td>{{currentPost.id}}</td>
-                <td>{{currentPost.userId}}</td>
-                <td>{{currentPost.title}}</td>
-                <td>{{currentPost.body}}</td>
-            </tr>
-        </ng-container>
+      <ng-container matColumnDef="source">
+        <th mat-header-cell *matHeaderCellDef> Source </th>
+        <td mat-cell *matCellDef="let element"> {{element.source}} </td>
+      </ng-container>
 
-        </tbody>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  </div>
 </div>

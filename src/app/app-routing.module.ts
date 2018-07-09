@@ -1,37 +1,35 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './shared/auth.guard';
-import { CallbackComponent } from './callback/callback.component';
+import { RouterModule } from '@angular/router';
+import { AuthGuard } from './shared/auth/auth.guard';
 
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'callback',
-    component: CallbackComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [
-      AuthGuard
-    ]
-  }
-];
+import { HomeComponent } from './home/home.component';
+import { CallbackComponent } from './callback/callback.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: [AuthGuard]
+  imports: [
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'callback',
+        component: CallbackComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full'
+      }
+    ])
+  ],
+  providers: [AuthGuard],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

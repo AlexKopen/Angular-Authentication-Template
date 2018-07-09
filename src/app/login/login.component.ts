@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service';
-import { Router } from '@angular/router';
+import { AuthService } from '../shared/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  username: String;
+  password: String;
+  showSpinner = false;
+  showError = false;
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  constructor(private auth: AuthService) {}
 
   ngOnInit() {
-    if (this.authService.authenticated) {
-      this.router.navigate(['/dashboard']);
+    this.auth.logInError$.subscribe(data => this.processLoginError(data));
+  }
+
+  login(): void {
+    this.showError = false;
+    this.showSpinner = true;
+    this.auth.login(this.username, this.password);
+  }
+
+  processLoginError(errorCaught: boolean): void {
+    if (errorCaught) {
+      this.showSpinner = false;
+      this.showError = true;
     }
   }
 }

@@ -1,0 +1,11 @@
+<div class="container" id="header-container">
+    <div class="header-column">
+        <img src="../../assets/auth0-logo.png" alt="Auth0 Logo">
+    </div>
+    <div class="header-column">
+        <h1 id="title">Angular Authentication Template</h1>
+    </div>
+    <div class="header-column">
+        <p *ngIf="userIsAuthenticated" (click)="logout()">Log Out</p>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+@import '../../globals';
+
+#header-container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 2em;
+
+  .header-column {
+    flex: 1;
+    $header-column-height: 70px;
+    height: $header-column-height;
+
+    img {
+      width: 60px;
+    }
+
+    h1 {
+      margin: 0;
+      width: 15em;
+      text-align: center;
+      line-height: $header-column-height;
+    }
+
+    p {
+      margin: 0;
+      text-align: right;
+      line-height: $header-column-height;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#title {
+  text-align: center;
+}

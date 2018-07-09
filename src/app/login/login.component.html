@@ -1,2 +1,35 @@
-<h1>Sample Administrative Portal</h1>
-<app-login-form></app-login-form>
+<div id="container">
+    <div id="title"><h2>Login</h2></div>
+
+    <mat-card>
+        <div *ngIf="!showSpinner">
+            <mat-card-content>
+                <form>
+                    <table cellspacing="0">
+                        <tr>
+                            <td>
+                                <mat-form-field>
+                                    <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field>
+                                    <input matInput placeholder="Password" [(ngModel)]="password" type="password"
+                                           name="password" (keyup.enter)="login()" required>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button (click)="login()" color="primary">Login</button>
+            </mat-card-actions>
+        </div>
+        <p *ngIf="showError" id="login-error">Invalid login credentials.  Please try again.</p>
+        <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    </mat-card>
+
+</div>

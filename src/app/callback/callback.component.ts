@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../shared/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,17 +8,21 @@ import { Router } from '@angular/router';
   templateUrl: './callback.component.html',
   styleUrls: ['./callback.component.scss']
 })
-export class CallbackComponent implements OnInit {
+export class CallbackComponent implements OnInit, OnDestroy {
+  loggedInSub: Subscription;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router) {
+    // Parse authentication hash
+    auth.handleLoginCallback();
   }
 
   ngOnInit() {
-    if (this.authService.authenticated) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.authService.handleAuth();
-    }
+    this.loggedInSub = this.auth.loggedIn$.subscribe(
+      loggedIn => (loggedIn ? this.router.navigate(['/dashboard']) : null)
+    );
   }
 
+  ngOnDestroy() {
+    this.loggedInSub.unsubscribe();
+  }
 }
