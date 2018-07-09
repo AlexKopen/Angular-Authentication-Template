@@ -11,7 +11,7 @@ This project was created referencing [this repository](https://github.com/auth0-
 
 ## Installation
 
-Clone this project. From the root directory, run the following commands to install dependencies for the server and client-side:
+From the root directory, run the following commands to install dependencies for the server and client-side:
 
 ```
 npm install
@@ -21,8 +21,9 @@ npm install
 
 In your [Auth0 administrative portal](https://manage.auth0.com/), create a new client and API as well as a new user to login with. Add `http://localhost:4200/callback` to your Allowed Callback URLs and `http://localhost:4200` to your Allowed Web Origins and Allowed Logout URLs in your newly created Auth0 client.
 
-1.  Open `server/config.js.example` and remove `.example` from the file name. Then replace `[CLIENT_DOMAIN]` with your Auth0 domain.
-2.  Open `src/app/auth/auth0-variables.ts.example` and remove `.example` from the file name. Then replace `[CLIENT_ID]` and `[CLIENT_DOMAIN]` with your Auth0 client ID and domain.
+Open `server/config.js.example` and remove `.example` from the file name. Then replace `[CLIENT_DOMAIN]` with your Auth0 domain.
+
+Open `src/app/auth/auth0-variables.ts.example` and remove `.example` from the file name. Then replace `[CLIENT_ID]` and `[CLIENT_DOMAIN]` with your Auth0 client ID and domain.
 
 ## Serving the project
 
